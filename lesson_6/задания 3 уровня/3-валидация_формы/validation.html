@@ -43,18 +43,17 @@
         let secondEl = document.querySelector('input#second');
 
         formEl.addEventListener('submit', function (event) {
-            if (markIfEmpty(firstEl) | markIfEmpty(secondEl)) {
+            if (firstEl.value == "") {
+                firstEl.style.borderColor = 'red';
+                event.preventDefault();
+            }
+
+            if (secondEl.value == "") {
+                secondEl.style.borderColor = 'red';
                 event.preventDefault();
             }
         });
 
-        function markIfEmpty(el) {
-            let isEpmty = el.value == "";
-            if (isEpmty) {
-                el.setAttribute('style', 'border-color: red');
-            }
-            return isEpmty;
-        }
     </script>
 </body>
 
